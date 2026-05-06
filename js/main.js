@@ -239,4 +239,40 @@
       }, 800);
     });
   }
+
+  // ===== Privacy Policy Dialog =====
+  var privacyDialog = document.getElementById('privacyDialog');
+  if (privacyDialog) {
+    var openBtns = document.querySelectorAll('[data-privacy-open]');
+    var closeBtns = privacyDialog.querySelectorAll('[data-privacy-close]');
+
+    function openPrivacy() {
+      if (typeof privacyDialog.showModal === 'function') {
+        privacyDialog.showModal();
+      } else {
+        privacyDialog.setAttribute('open', '');
+      }
+      document.body.classList.add('privacy-dialog-open');
+    }
+    function closePrivacy() {
+      if (typeof privacyDialog.close === 'function') {
+        privacyDialog.close();
+      } else {
+        privacyDialog.removeAttribute('open');
+      }
+      document.body.classList.remove('privacy-dialog-open');
+    }
+
+    openBtns.forEach(function (b) { b.addEventListener('click', openPrivacy); });
+    closeBtns.forEach(function (b) { b.addEventListener('click', closePrivacy); });
+
+    // 背景クリックで閉じる
+    privacyDialog.addEventListener('click', function (e) {
+      if (e.target === privacyDialog) closePrivacy();
+    });
+    // ESC キーや submit 等で close した際の body クラス解除
+    privacyDialog.addEventListener('close', function () {
+      document.body.classList.remove('privacy-dialog-open');
+    });
+  }
 })();

@@ -1111,6 +1111,18 @@
           <textarea id="field-message" name="message" class="form-textarea" placeholder="例：年少クラス20名対象で、6月頃の出張講座を検討しています。" required></textarea>
         </div>
 
+        <div class="privacy-link-wrap">
+          <button type="button" class="privacy-link" data-privacy-open aria-haspopup="dialog" aria-controls="privacyDialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="9" y1="13" x2="15" y2="13"/>
+              <line x1="9" y1="17" x2="13" y2="17"/>
+            </svg>
+            プライバシーポリシーを読む
+          </button>
+        </div>
+
         <div class="privacy-check">
           <input type="checkbox" id="privacy" name="privacy" required>
           <label for="privacy">
@@ -1187,6 +1199,87 @@
     <p class="footer-copyright">© 2026 カブラルサエ｜性教育講師</p>
   </div>
 </footer>
+
+<!-- ===== PRIVACY POLICY DIALOG ===== -->
+<dialog id="privacyDialog" class="privacy-dialog" aria-labelledby="privacyDialogTitle">
+  <div class="privacy-dialog-card">
+    <div class="privacy-dialog-header">
+      <h2 id="privacyDialogTitle" class="privacy-dialog-title">プライバシーポリシー</h2>
+      <button type="button" class="privacy-dialog-close" data-privacy-close aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="privacy-dialog-body">
+      <p class="privacy-lead">
+        [要記入：屋号]（以下、「当方」といいます。）は、お問い合わせフォーム等を通じてお預かりする個人情報の重要性を認識し、その適正な取り扱いと保護に努めます。本プライバシーポリシーは、お預かりした情報の取り扱いについて定めるものです。
+      </p>
+
+      <section class="privacy-section">
+        <h3>1. 事業者情報</h3>
+        <ul>
+          <li>屋号：[要記入]</li>
+          <li>代表者：[要記入]</li>
+          <li>連絡先：[要記入：メールアドレス]</li>
+        </ul>
+      </section>
+
+      <section class="privacy-section">
+        <h3>2. 取得する個人情報</h3>
+        <p>お問い合わせフォームでは、以下の情報を取得いたします。</p>
+        <ul>
+          <li>お名前</li>
+          <li>メールアドレス</li>
+          <li>ご所属（園名・学校名・団体名等）</li>
+          <li>ご希望の講座内容、対象クラス・人数、ご希望時期</li>
+          <li>ご要望・ご質問の内容</li>
+        </ul>
+      </section>
+
+      <section class="privacy-section">
+        <h3>3. 利用目的</h3>
+        <p>取得した個人情報は、以下の目的の範囲内でのみ利用いたします。</p>
+        <ul>
+          <li>お問い合わせ・ご相談への返信および対応</li>
+          <li>講座・出張授業に関する打ち合わせおよび実施</li>
+          <li>ご依頼内容に関する事務連絡</li>
+        </ul>
+      </section>
+
+      <section class="privacy-section">
+        <h3>4. 第三者への提供</h3>
+        <p>法令に基づく場合またはご本人の同意がある場合を除き、お預かりした個人情報を第三者へ提供することはありません。</p>
+      </section>
+
+      <section class="privacy-section">
+        <h3>5. 安全管理措置</h3>
+        <p>お預かりした個人情報は、漏洩・滅失・毀損等を防止するため、適切な安全管理措置を講じます。利用目的を達成し不要となった情報は、速やかに削除いたします。</p>
+      </section>
+
+      <section class="privacy-section">
+        <h3>6. 開示・訂正・削除等のご請求</h3>
+        <p>ご本人からの個人情報の開示・訂正・追加・削除・利用停止等のご請求につきましては、上記連絡先までご連絡ください。ご本人であることを確認のうえ、合理的な期間内に対応いたします。</p>
+      </section>
+
+      <section class="privacy-section">
+        <h3>7. 本ポリシーの改定</h3>
+        <p>本プライバシーポリシーの内容は、法令の変更等に応じて改定する場合があります。改定後の内容は、本ページに掲載した時点から効力を生じるものとします。</p>
+      </section>
+
+      <p class="privacy-meta">
+        制定日：[要記入：YYYY年MM月DD日]<br>
+        最終更新日：[要記入：YYYY年MM月DD日]
+      </p>
+    </div>
+
+    <div class="privacy-dialog-footer">
+      <button type="button" class="btn-privacy-close" data-privacy-close>閉じる</button>
+    </div>
+  </div>
+</dialog>
 
 <!-- ===== FLOATING CTA ===== -->
 <a href="#contact-form" class="floating-cta" id="floatingCta" aria-label="お申し込みフォームへ">
