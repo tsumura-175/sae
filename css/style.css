@@ -3177,8 +3177,16 @@ a { color: inherit; }
   z-index: 1;
 }
 
-/* セクションを overflow:hidden に（装飾はみ出し防止） */
-.about { overflow: hidden; }
+/* 装飾はみ出し防止: .about 自体は overflow:visible にして sticky を維持し、
+   装飾のみ専用レイヤーで切り抜く */
+.about { position: relative; }
+.about-deco-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
 
 /* ---------- About: 花×2 + ペン×1（コンテンツ近くに大きく） ---------- */
 .deco-flower--about-1 {

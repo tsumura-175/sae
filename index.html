@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/auth-gate.js"></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -243,31 +244,33 @@
 <!-- ===== ABOUT ===== -->
 <section class="about section" id="about" aria-labelledby="aboutHeading">
   <!-- ===== ABOUT DECORATIONS (flowers + pen) ===== -->
-  <svg class="deco-svg deco-flower deco-flower--about-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g transform="translate(50 50)">
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(72)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(144)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(216)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(288)"/>
-      <circle r="9" fill="currentColor" opacity="0.6"/>
-    </g>
-  </svg>
-  <svg class="deco-svg deco-flower deco-flower--about-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g transform="translate(50 50)">
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(72)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(144)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(216)"/>
-      <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(288)"/>
-      <circle r="9" fill="currentColor" opacity="0.6"/>
-    </g>
-  </svg>
-  <svg class="deco-svg deco-pen deco-pen--about" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M70 8 L92 30 L42 80 L18 92 L30 68 Z" fill="currentColor"/>
-    <path d="M70 8 L92 30 L82 40 L60 18 Z" fill="currentColor" opacity="0.55"/>
-    <path d="M30 68 L42 80 L24 88 Z" fill="currentColor" opacity="0.4"/>
-  </svg>
+  <div class="about-deco-layer" aria-hidden="true">
+    <svg class="deco-svg deco-flower deco-flower--about-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(50 50)">
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(72)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(144)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(216)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(288)"/>
+        <circle r="9" fill="currentColor" opacity="0.6"/>
+      </g>
+    </svg>
+    <svg class="deco-svg deco-flower deco-flower--about-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(50 50)">
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(72)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(144)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(216)"/>
+        <path d="M 0 -38 C -10 -34 -14 -20 -8 -10 C -3 -6 3 -6 8 -10 C 14 -20 10 -34 0 -38 Z" fill="currentColor" transform="rotate(288)"/>
+        <circle r="9" fill="currentColor" opacity="0.6"/>
+      </g>
+    </svg>
+    <svg class="deco-svg deco-pen deco-pen--about" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M70 8 L92 30 L42 80 L18 92 L30 68 Z" fill="currentColor"/>
+      <path d="M70 8 L92 30 L82 40 L60 18 Z" fill="currentColor" opacity="0.55"/>
+      <path d="M30 68 L42 80 L24 88 Z" fill="currentColor" opacity="0.4"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="reveal">
       <div class="section-label">About</div>
