@@ -1269,7 +1269,7 @@ a { color: inherit; }
 
 .privacy-link-wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 10px;
 }
 .privacy-link {
