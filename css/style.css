@@ -272,7 +272,10 @@ a { color: inherit; }
   position: fixed;
   inset: 0;
   background: rgba(51, 71, 74, 0.5);
-  z-index: var(--z-drawer);
+  /* header(sticky)が z-index:var(--z-header) でスタッキングコンテキストを作り、
+     その内側のドロワーを閉じ込めるため、オーバーレイはヘッダー階層より下に置く。
+     これでドロワーが前面になり、白パネル表示＆リンクのタップが有効になる。 */
+  z-index: calc(var(--z-header) - 1);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base) var(--ease-out);
@@ -2000,8 +2003,15 @@ a { color: inherit; }
     background: var(--white);
     padding: 88px 28px 40px;
     z-index: calc(var(--z-drawer) + 1);
-    transform: translateX(100%);
-    transition: transform var(--dur-base) var(--ease-out);
+    /* 旧実装は transform: translateX(100%) で画面外右に退避していたが、
+       position:fixed のため body の overflow-x:hidden では抑えられず、
+       iOS等で横スクロール（右側の余白）を生んでいた。
+       画面内に置いたままフェード＋微スライドで開閉し、はみ出しを出さない。 */
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), visibility var(--dur-base) var(--ease-out);
     box-shadow: -8px 0 32px rgba(51, 71, 74, 0.12);
     flex-direction: column;
     align-items: stretch;
@@ -2009,7 +2019,10 @@ a { color: inherit; }
     overflow-y: auto;
   }
   .header-nav.is-open {
-    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   .header-nav.is-open .header-nav-list {
     display: flex;
@@ -2077,6 +2090,14 @@ a { color: inherit; }
   }
   .hero-scroll-indicator {
     justify-content: center;
+  }
+  /* 375px級の狭い端末で「お問い合わせを送信する」が
+     「送信す／る」と折り返すのを防ぐ（余白・字間を詰め、1行で固定） */
+  .btn-submit {
+    padding: 18px 16px;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    white-space: nowrap;
   }
 }
 
@@ -2478,6 +2499,16 @@ a { color: inherit; }
 .sp-only { display: none; }
 @media (max-width: 600px) {
   .sp-only { display: inline; }
+  .intro-message-body,
+  .contact-empathy,
+  .footer-message { word-break: keep-all; }
+  /* フッターナビ: 横並び(wrap)は維持しつつ、幅を絞って均等な行に整える */
+  .footer-nav {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 14px 18px;
+  }
 }
 
 /* ===== ACHIEVEMENT SECTION ===== */
